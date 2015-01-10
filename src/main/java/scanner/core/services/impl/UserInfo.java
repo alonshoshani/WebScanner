@@ -14,14 +14,18 @@ public class UserInfo {
 	@Autowired
 	private AccountService accountService;
 	
+	public Account loggedIn = null;
+	
 	
 	public Account getActiveUser(){
+		if (loggedIn == null){
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 	       if(principal instanceof UserDetails) {
 	            UserDetails details = (UserDetails)principal;
-	            Account loggedIn = accountService.findByAccountName(details.getUsername());
-	            return loggedIn;
+	            this.loggedIn = accountService.findByAccountName(details.getUsername());
+	            return this.loggedIn;
 	       }
-	    return null;
+		}
+	    return this.loggedIn;
 	}
 }
