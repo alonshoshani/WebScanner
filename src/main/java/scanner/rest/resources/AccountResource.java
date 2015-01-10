@@ -15,13 +15,13 @@ public class AccountResource extends ResourceSupport {
 
     private String password;
 
-    private String rid;
+    private int rid;
 
-    public String getRid() {
+    public int getRid() {
         return rid;
     }
 
-    public void setRid(String rid) {
+    public void setRid(int rid) {
         this.rid = rid;
     }
     public String getName() {

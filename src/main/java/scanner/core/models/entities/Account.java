@@ -3,25 +3,30 @@ package scanner.core.models.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * Created by Chris on 6/28/14.
  */
-@Document
+@Entity
+@Table(name = "users")
 public class Account {
-
-    private String _id;
+	@Id
+	@GeneratedValue
+    private int id;
     private String name;
     private String password;
+    private String email;
+    private String company;
 
-    public String getId() {
-        return _id;
+    public int getId() {
+        return id;
     }
 
-    public void setId(String id) {
-        this._id = id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -39,4 +44,20 @@ public class Account {
     public void setPassword(String password) {
         this.password = password;
     }
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getCompany() {
+		return company;
+	}
+
+	public void setCompany(String company) {
+		this.company = company;
+	}
 }

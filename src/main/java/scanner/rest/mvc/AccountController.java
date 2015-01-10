@@ -34,7 +34,9 @@ import scanner.rest.resources.asm.AccountResourceAsm;
 @Controller
 @RequestMapping("/rest/accounts")
 public class AccountController {
-    private AccountService accountService;
+    
+	
+	private AccountService accountService;
 
     @Autowired
     public AccountController(AccountService accountService) {
@@ -82,9 +84,9 @@ public class AccountController {
                 method = RequestMethod.GET)
     @PreAuthorize("permitAll")
     public ResponseEntity<AccountResource> getAccount(
-            @PathVariable String accountId
+            @PathVariable int accountId
     ) {
-        Account account = accountService.findAccount(accountId);
+        Account account = null;//accountService.findAccount(accountId);
         if(account != null)
         {
             AccountResource res = new AccountResourceAsm().toResource(account);
