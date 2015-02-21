@@ -21,10 +21,7 @@ import static org.junit.Assert.assertNotNull;
 @ContextConfiguration("classpath:spring/business-config.xml")
 public class AccountRepoTest {
 
-    @Autowired
-    private AccountRepo repo;
-
-    private Account account;
+   
 /*
     @Before
     @Transactional
@@ -47,4 +44,10 @@ public class AccountRepoTest {
         assertEquals(account.getPassword(), "password");
     }
     */
+    @Test
+    public void testFind()
+    {
+       
+    }
+    
 }
